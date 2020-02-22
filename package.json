@@ -1,34 +1,96 @@
 {
   "name": "electron-boilerplate",
+	"productName": "Electron Boilerplate",
   "version": "0.1.0",
   "private": true,
+  "licence": "MIT",
+  "homepage": "./",
+	"main": "electron.config.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+		"immutable": "^4.0.0-rc.12",
+		"js-toolkit": "https://github.com/360player/js-toolkit.git",
+		"normalizr": "^3.5.0",
+		"prop-types": "^15.7.2",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-redux": "^7.2.0",
+		"react-scripts": "3.4.0",
+		"redux": "^4.0.5",
+		"reselect": "^4.0.0",
+		"styled-components": "^5.0.1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^8.3.5",
+		"@commitlint/config-conventional": "^8.3.4",
+		"@craco/craco": "^5.6.3",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"babel-eslint": "^10.0.3",
+		"concurrently": "^5.1.0",
+		"cross-env": "^7.0.0",
+		"electron": "^8.0.1",
+		"electron-builder": "^22.3.2",
+		"electron-devtools-installer": "^2.2.4",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-config-react-app": "^5.2.0",
+		"eslint-plugin-import": "^2.20.1",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-react": "^7.18.3",
+		"eslint-plugin-react-hooks": "^2.4.0",
+		"husky": "^4.2.3",
+		"lint-staged": "^10.0.7",
+		"prettier": "^1.19.1",
+		"standard-version": "^7.1.0",
+		"wait-on": "^4.0.0"
+	},
+	"scripts": {
+		"start": "concurrently \"cross-env BROWSER=none yarn craco start\" \"wait-on http://localhost:3000 && electron .\"",
+		"build": "craco build && electron-builder",
+		"start:web": "craco start --config craco.config.web.js",
+		"build:web": "craco build --config craco.config.web.js",
+		"release:patch": "yarn standard-version release -- --release-as patch",
+		"release:minor": "yarn standard-version release -- --release-as minor",
+		"release:major": "yarn standard-version release -- --release-as major"
+	},
+	"build": {
+		"appId": "io.github.username.ElectronBoilerplate",
+		"productName": "Electron Boilerplate",
+		"extends": null,
+		"files": [
+			"./electron.config.js",
+			"./build/**/*",
+			"./src/.js"
+		]
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"*.json": [
+			"prettier --write"
+		],
+		"*.{js,jsx}": [
+			"eslint --ext .js,.jsx --fix --cache"
+		]
+	}
 }

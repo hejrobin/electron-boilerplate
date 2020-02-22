@@ -1,0 +1,123 @@
+{
+	"extends": [
+		"react-app",
+		"plugin:prettier/recommended",
+		"plugin:import/errors"
+	],
+	"plugins": ["react-hooks", "react"],
+
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"],
+				"paths": ["src"]
+			}
+		}
+	},
+
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"parser": "babel-eslint",
+		"ecmaVersion": 2017,
+
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		},
+
+		"sourceType": "module"
+	},
+
+	"globals": {
+		"module": true,
+		"require": true,
+		"process": true
+	},
+
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+
+	"rules": {
+		"no-unused-vars": ["error"],
+		"no-undef": ["error"],
+		"react/jsx-uses-react": 1,
+		"react/jsx-uses-vars": 1,
+		"react/jsx-fragments": ["error", "element"],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"indent": 0,
+		"linebreak-style": 0,
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }],
+		"semi": ["error", "always"],
+		"no-console": 0,
+
+		"import/no-unresolved": ["error"],
+		"import/first": ["error"],
+		"import/order": [
+			"error",
+			{
+				"groups": ["builtin", "external", "internal"],
+				"pathGroups": [
+					{
+						"pattern": "router/*",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "config/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "utils/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "data/models/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "data/selectors/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "data/actions/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "data/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "views/routes/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "views/containers/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "views/components/*",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "views/components/**",
+						"group": "internal",
+						"position": "before"
+					}
+				],
+				"newlines-between": "always"
+			}
+		]
+	}
+}
