@@ -1,12 +1,12 @@
 {
-  "name": "electron-boilerplate",
+	"name": "electron-boilerplate",
 	"productName": "Electron Boilerplate",
-  "version": "0.1.0",
-  "private": true,
-  "licence": "MIT",
-  "homepage": "./",
+	"version": "1.0.0",
+	"private": true,
+	"licence": "MIT",
+	"homepage": "./",
 	"main": "electron.config.js",
-  "dependencies": {
+	"dependencies": {
 		"immutable": "^4.0.0-rc.12",
 		"js-toolkit": "https://github.com/360player/js-toolkit.git",
 		"normalizr": "^3.5.0",
