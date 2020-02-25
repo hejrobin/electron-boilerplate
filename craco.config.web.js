@@ -4,4 +4,7 @@ module.exports = {
 			target: 'web',
 		},
 	},
+	babel: {
+		plugins: ['@babel/plugin-proposal-export-namespace-from'],
+	},
 };

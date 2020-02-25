@@ -6,7 +6,7 @@ import useEventListener from 'utils/hooks/useEventListener';
 
 import { setNetworkStatus } from 'data/actions/app';
 
-import selectors from 'data/selectors';
+import * as selectors from 'data/selectors';
 
 const Wrapper = styled.div`
 	height: 100vh;
