@@ -51,7 +51,8 @@
 		"build": "craco build && electron-builder",
 		"start:web": "craco start --config craco.config.web.js",
 		"build:web": "craco build --config craco.config.web.js",
-		"test": "craco test",
+		"test": "craco test --forceExit",
+		"test:all": "craco test --forceExit --watchAll",
 		"release:patch": "yarn standard-version release -- --release-as patch",
 		"release:minor": "yarn standard-version release -- --release-as minor",
 		"release:major": "yarn standard-version release -- --release-as major"
@@ -83,7 +84,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged",
+			"pre-commit": "lint-staged && test:all",
 			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 		}
 	},
