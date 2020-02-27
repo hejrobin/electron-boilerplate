@@ -64,7 +64,11 @@
 			"./electron.config.js",
 			"./build/**/*",
 			"./src/.js"
-		]
+		],
+		"nsis": {
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true
+		}
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -83,7 +87,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged && test",
+			"pre-commit": "lint-staged && test --watchAll",
 			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 		}
 	},
