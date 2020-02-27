@@ -51,7 +51,7 @@
 		"build": "craco build && electron-builder",
 		"start:web": "craco start --config craco.config.web.js",
 		"build:web": "craco build --config craco.config.web.js",
-		"test": "craco test --forceExit",
+		"test": "craco test --detectOpenHandles --maxWorkers=4",
 		"release:patch": "yarn standard-version release -- --release-as patch",
 		"release:minor": "yarn standard-version release -- --release-as minor",
 		"release:major": "yarn standard-version release -- --release-as major"

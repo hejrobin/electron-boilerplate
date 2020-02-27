@@ -1,5 +1,9 @@
 # Electron & Web Boilerplate
 
+![Test Suite](https://github.com/hejrobin/electron-boilerplate/workflows/Test%20Suite/badge.svg)
+![Dependencies Status](https://david-dm.org/hejrobin/electron-boilerplate/status.svg)
+![Development Dependencies Status](https://david-dm.org/hejrobin/electron-boilerplate/dev-status.svg)
+
 ## Environment
 
 - [Electron](https://electronjs.org/)
